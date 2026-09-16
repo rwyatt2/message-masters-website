@@ -1,0 +1,25 @@
+// Organizations Message Masters has served. Source: the client wall on message-master.com.
+// Order matches the page. Files live in web/public/logos.
+export const CLIENTS = [
+  { name: "Sunny Darden Group", src: '/logos/sunny-darden-group.png' },
+  { name: "Express My Brand", src: '/logos/express-my-brand.png' },
+  { name: "GT", src: '/logos/gt.png' },
+  { name: "North Texas Health Insurance", src: '/logos/north-texas-health-insurance.png' },
+  { name: "MJM Custom Homes", src: '/logos/mjm-custom-homes.png' },
+  { name: "Argyle Community Church", src: '/logos/argyle-community-church.png' },
+  { name: "Sedo", src: '/logos/sedo.png' },
+  { name: "Farm Road 407 BBQ", src: '/logos/farm-road-407-bbq.jpeg' },
+  { name: "Argyle Education Foundation", src: '/logos/argyle-education-foundation.jpeg' },
+  { name: "CashFlowBoss", src: '/logos/cashflowboss.png' },
+  { name: "Country Lakes Family Dental", src: '/logos/country-lakes-family-dental.jpeg' },
+  { name: "The Real Estate Station", src: '/logos/the-real-estate-station.jpeg' },
+  { name: "AlwaysFamily", src: '/logos/alwaysfamily.png', wide: true },
+  { name: "All About Babies Birth Center", src: '/logos/all-about-babies-birth-center.png' },
+  { name: "My Affordable Glass", src: '/logos/my-affordable-glass.png' },
+  { name: "PMC Barbershop", src: '/logos/pmc-barbershop.png' },
+  { name: "Carney Construction", src: '/logos/carney-construction.png' },
+  { name: "Team Sports Consulting Group", src: '/logos/team-sports-consulting-group.png' },
+  { name: "F3", src: '/logos/f3.png' },
+  { name: "Decision Financial", src: '/logos/decision-financial.png' },
+  { name: "Bauer Roofing and Construction", src: '/logos/bauer-roofing-and-construction.png' },
+]

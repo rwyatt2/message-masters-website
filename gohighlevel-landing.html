@@ -355,6 +355,39 @@
         @keyframes marquee { to { transform: translateX(-50%); } }
         .no-anim .marquee-track { animation-duration: 60s; }
 
+        /* ============ CLIENTS ============ */
+        .clients { background: var(--void); }
+        .client-field {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: clamp(1.2rem, 3vw, 2.6rem) clamp(1rem, 2.5vw, 2rem);
+            align-items: center;
+            /* Screen the whole field onto the dark page. Inverted white
+               backgrounds become black, and black drops out here. The blend
+               must sit above the drifting wrappers, which isolate blending. */
+            mix-blend-mode: screen;
+        }
+        .client {
+            height: 150px;
+            display: flex; align-items: center; justify-content: center;
+            animation: clientFloat var(--d, 6s) ease-in-out var(--dl, 0s) infinite alternate;
+        }
+        .client [data-magnet] { will-change: transform; }
+        .client img {
+            display: block;
+            max-width: 100%; max-height: 100px;
+            width: auto; height: auto;
+            object-fit: contain;
+            filter: grayscale(1) invert(1) contrast(1.2);
+            opacity: 0.5;
+            transition: opacity 0.4s var(--ease);
+        }
+        .client:hover img { opacity: 1; }
+        .client.is-light img { filter: brightness(0) invert(1); }
+        .client.is-wide img { max-width: 220px; }
+        @keyframes clientFloat { from { transform: translateY(5px); } to { transform: translateY(-5px); } }
+        .clients.is-static .client, .no-anim .client { animation: none; }
+
         /* ============ SECTION SHELL ============ */
         section.block { padding: clamp(6rem, 12vw, 11rem) 0; position: relative; }
         .block-head { margin-bottom: clamp(3.5rem, 7vw, 6rem); }
@@ -828,6 +861,8 @@
 
         /* ============ RESPONSIVE ============ */
         @media (max-width: 900px) {
+            .client-field { grid-template-columns: repeat(4, 1fr); }
+            .client.is-wide img { max-width: 170px; }
             .verify-item { grid-template-columns: 1fr; }
             .svc-card { grid-template-columns: 1fr; }
             .diff-row { grid-template-columns: auto 1fr; }
@@ -836,6 +871,10 @@
             .foot-grid { grid-template-columns: 1fr; gap: 3rem; }
         }
         @media (max-width: 768px) {
+            .client-field { grid-template-columns: repeat(3, 1fr); gap: 1rem 0.8rem; }
+            .client { height: 100px; }
+            .client img { max-height: 68px; }
+            .client.is-wide img { max-width: 100%; }
             .nav-links { display: none; }
             .nav-progress { display: none; }
             .nav-cta { display: none; }
@@ -975,6 +1014,39 @@
         Argyle &amp; Roanoke, Texas<br>33.11&deg; N &middot; 97.18&deg; W
     </div>
 </header>
+
+<!-- CLIENTS -->
+<section class="block clients" id="clients" aria-label="Organizations we have served">
+    <div class="container">
+        <div class="block-head">
+            <p class="kicker" data-reveal>Organizations served</p>
+            <h2 class="display block-title" data-reveal>Two hundred<br>and counting.</h2>
+        </div>
+        <div class="client-field">
+            <div data-reveal><div class="client" style="--d:5.5s;--dl:-0.00s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c3bd3e5b1b5940d2a4.png" alt="Sunny Darden Group" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:6.2s;--dl:-0.37s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c38f22b96d572cf42d.png" alt="Express My Brand" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:6.9s;--dl:-0.74s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c3ed5f23cc2ae49657.png" alt="GT" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:7.6s;--dl:-1.11s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c3277a386ee877f506.png" alt="North Texas Health Insurance" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:8.3s;--dl:-1.48s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c3277a382d0a77f509.png" alt="MJM Custom Homes" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:5.5s;--dl:-1.85s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c3f165c98912acb240.png" alt="Argyle Community Church" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:6.2s;--dl:-2.22s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c3bd3e5bafc440d2a5.png" alt="Sedo" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:6.9s;--dl:-2.59s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/68082e07a74bb57f18b395e2.jpeg" alt="Farm Road 407 BBQ" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:7.6s;--dl:-2.96s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/68082e3a553774616d0f37ab.jpeg" alt="Argyle Education Foundation" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:8.3s;--dl:-3.33s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/68082e78773e1644b5fad4bf.png" alt="CashFlowBoss" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:5.5s;--dl:-3.70s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/68082e9aa74bb52dfbb3964b.jpeg" alt="Country Lakes Family Dental" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:6.2s;--dl:-4.07s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/68082ec8773e163b89fad4e8.jpeg" alt="The Real Estate Station" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client is-wide" style="--d:6.9s;--dl:-4.44s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/68082eef2ffc455e14549ed7.png" alt="AlwaysFamily" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:7.6s;--dl:-4.81s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/68082f1ec6822390f0fba63e.png" alt="All About Babies Birth Center" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:8.3s;--dl:-5.18s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c3910f5b3449040bb6.png" alt="My Affordable Glass" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:5.5s;--dl:-5.55s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c3277a38a77977f508.png" alt="PMC Barbershop" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:6.2s;--dl:-5.92s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c32d01fa7cbaa20b87.png" alt="Carney Construction" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:6.9s;--dl:-6.29s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c3910f5b1e72040bb7.png" alt="Team Sports Consulting Group" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:7.6s;--dl:-6.66s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c32d01fae441a20b86.png" alt="F3" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:8.3s;--dl:-7.03s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c3ed5f23a48ae49656.png" alt="Decision Financial" loading="lazy"></span></div></div>
+            <div data-reveal><div class="client" style="--d:5.5s;--dl:-7.40s"><span data-magnet><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_640/u_https://assets.cdn.filesafe.space/CDGPvP4mGwIqI7goACfS/media/662984c3f165c94da4acb243.png" alt="Bauer Roofing and Construction" loading="lazy"></span></div></div>
+        </div>
+    </div>
+</section>
 
 <!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">

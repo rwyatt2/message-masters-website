@@ -51,6 +51,7 @@ Output lands in `web/dist/`. Preview it with `npm run preview`.
 4. In Page Settings, set the page background color to `#0B0D10`. Set section, row, and column padding to 0. The block forces these anyway, but matching the settings avoids a flash on load.
 5. Save and publish. Check the published page, not the builder canvas. The builder shows custom code as a placeholder.
 6. Test on a phone. The mobile menu, vertical Order stack, and the form should all work.
+7. The client logos in the GoHighLevel block load from the images already in your GoHighLevel media library (the same files the old site uses). Deleting that media would break them. The React app uses its own copies in `web/public/logos`.
 
 ## Project Structure
 

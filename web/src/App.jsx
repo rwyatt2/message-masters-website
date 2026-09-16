@@ -6,6 +6,7 @@ import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
 import Preloader from './components/sections/Preloader'
 import Hero from './components/sections/Hero'
+import Clients from './components/sections/Clients'
 import Problems from './components/sections/Problems'
 import Verification from './components/sections/Verification'
 import Order from './components/sections/Order'
@@ -29,6 +30,7 @@ export default function App() {
       <Nav lenisRef={lenisRef} />
       <main>
         <Hero play={ready} lenisRef={lenisRef} />
+        <Clients />
         <Marquee items={['Discover your value', 'Share it with the world', 'Built on purpose']} />
         <Problems />
         <Verification />

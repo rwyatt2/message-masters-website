@@ -51,6 +51,7 @@ web/
     │   └── sections/
     │       ├── Preloader.jsx      Self-drawing heptagon
     │       ├── Hero.jsx           Starfield hero, two-beat tagline
+    │       ├── Clients.jsx        Floating client logo field
     │       ├── Problems.jsx       Ghost-fill problem statements
     │       ├── Verification.jsx   Evidence-before-claim blocks
     │       ├── Order.jsx          Pinned horizontal Purpose > Identity > Strategy > Expression
@@ -62,6 +63,8 @@ web/
     ├── hooks/
     │   ├── useLenis.js
     │   └── useReducedMotion.js
+    ├── data/
+    │   └── clients.js             Client names and logo paths (files in public/logos)
     ├── lib/
     │   └── heptagon.js            Shared seven-sided geometry
     ├── styles/
