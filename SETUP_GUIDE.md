@@ -32,21 +32,25 @@ Output lands in `web/dist/`. Preview it with `npm run preview`.
 
 ### Option 2: The Single HTML Version (GoHighLevel)
 
-The `gohighlevel-landing.html` file is ready to upload directly to GoHighLevel or any hosting platform. It includes:
+`gohighlevel-landing.html` is the same page as one self-contained file. It includes:
 
 - Complete brand styling, inline CSS, inline JavaScript
 - Canvas starfield hero and a self-drawing heptagon preloader
 - Pinned horizontal Order section on desktop, vertical fallback on mobile
 - All major sections, animated counters, crossfading testimonials
 - Contact form, smooth anchor scrolling, mobile navigation
-- CDN-loaded GSAP, ScrollTrigger, and Lenis with a graceful vanilla fallback if they fail to load
+- GSAP, ScrollTrigger, and Lenis loaded from a CDN by a small loader, with a vanilla fallback if they fail
 - Reduced-motion support throughout
+- A `.mm-root` wrapper that paints its own dark background and breaks out to the full viewport, so the page looks the same standalone and inside GoHighLevel
 
-**To use:**
+**To put it in GoHighLevel:**
 
-1. Open `gohighlevel-landing.html` in a browser to test
-2. Customize the contact form action URL
-3. Upload directly to GoHighLevel
+1. Regenerate the paste file if the page changed: `cd web && npm run ghl` (writes `gohighlevel-paste.html` at the repo root). The paste file is also committed, so you can copy it straight from GitHub.
+2. In GoHighLevel, open the funnel step or website page, add a section, set it to full width, and add one Custom HTML element (also called Custom JS/HTML) inside it.
+3. Open `gohighlevel-paste.html`, select all, copy, and paste the whole block into the element. Fonts, CSS, markup, and scripts all travel inside the block.
+4. In Page Settings, set the page background color to `#0B0D10`. Set section, row, and column padding to 0. The block forces these anyway, but matching the settings avoids a flash on load.
+5. Save and publish. Check the published page, not the builder canvas. The builder shows custom code as a placeholder.
+6. Test on a phone. The mobile menu, vertical Order stack, and the form should all work.
 
 ## Project Structure
 
@@ -106,7 +110,7 @@ Message Masters/
 - **Order Standard**: Purpose > Identity > Strategy > Expression
 - **Reading Level**: Grade 8
 - **No Em Dashes**: Use full sentences, commas, colons, or periods
-- **Keep Both Versions In Sync**: Style or copy changes go in both `web/src/styles/index.css` and `gohighlevel-landing.html`
+- **Keep Both Versions In Sync**: Style or copy changes go in both `web/src/styles/index.css` and `gohighlevel-landing.html`. The GoHighLevel file additionally carries a `.mm-root` wrapper and a host-overrides CSS block that the React app does not need. After editing it, run `npm run ghl` to refresh `gohighlevel-paste.html`.
 
 ## Next Steps
 
@@ -119,9 +123,9 @@ Message Masters/
 
 ### For GoHighLevel
 
-1. Test the HTML file locally
-2. Customize the contact form action URL
-3. Upload to GoHighLevel
+1. Test `gohighlevel-landing.html` locally
+2. Wire the contact form to a GoHighLevel form or webhook
+3. Paste `gohighlevel-paste.html` into a Custom HTML element (steps above)
 4. Test on mobile devices
 5. Verify all links work
 
@@ -151,7 +155,11 @@ Message Masters/
 ### CDN libraries fail in GoHighLevel
 
 - The page is designed to degrade gracefully: reveals appear instantly, the Order section stacks vertically, counters jump to final values
-- If GSAP or Lenis load but behave oddly, check for stripped `defer` attributes on the script tags
+- The libraries are loaded by an inline loader rather than `defer` script tags, so the builder cannot strip the load order
+
+### White background or narrow column in GoHighLevel
+
+- GoHighLevel adds a white fixed page layer and a 1170px content column around custom code. The `.mm-root` wrapper and the host-overrides block at the top of the stylesheet neutralize both. If you see white, make sure the whole block was pasted, including the `<style>` and the opening `<div class="mm-root">`.
 
 ### Fonts not loading
 

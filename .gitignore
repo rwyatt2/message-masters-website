@@ -12,3 +12,6 @@ web/dist/
 # OS / editor
 .DS_Store
 *.log
+
+# Local editor/agent config
+.claude/

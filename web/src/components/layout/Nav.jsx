@@ -85,7 +85,7 @@ export default function Nav({ lenisRef }) {
           </button>
         </div>
       </nav>
-      <div className={`nav-menu${open ? ' open' : ''}`}>
+      <div className={`mm-menu${open ? ' open' : ''}`}>
         {LINKS.map((l) => (
           <a key={l.href} href={l.href} onClick={(e) => go(e, l.href)}>{l.label}</a>
         ))}

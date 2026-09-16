@@ -180,7 +180,9 @@ This project includes:
 
 ## Single HTML Version
 
-A standalone single-file version for GoHighLevel is available as `gohighlevel-landing.html`. It mirrors the React experience (starfield hero, self-drawing heptagon preloader, pinned horizontal Order on desktop, vertical fallback on mobile) using CDN-loaded GSAP, ScrollTrigger, and Lenis with a graceful vanilla fallback if those libraries fail to load. Upload it directly to GoHighLevel.
+A standalone single-file version for GoHighLevel lives at `gohighlevel-landing.html`. It mirrors the React experience (starfield hero, self-drawing heptagon preloader, pinned horizontal Order on desktop, vertical fallback on mobile) with GSAP, ScrollTrigger, and Lenis loaded from a CDN and a vanilla fallback if they fail. A `.mm-root` wrapper paints its own dark background and breaks out of GoHighLevel's content column.
+
+To get the paste-ready block, run `cd web && npm run ghl`. It writes `gohighlevel-paste.html` at the repo root, which is also committed. Paste that file into a GoHighLevel Custom HTML element. See `SETUP_GUIDE.md` for the steps.
 
 ## Support
 
